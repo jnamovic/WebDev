@@ -1,0 +1,186 @@
+<!DOCTYPE html> 	<!-- Tells the browser this is HTML 5 -->
+<html lang="en"> 	<!-- Root of the html document and is in English -->
+
+<head> 
+<!-- The HEAD section has (mostly) items that are not directly seen by the user -->
+
+	<!-- META tags help search engines identify your content more easily -->
+	<meta charset="utf-8" /> <!-- Specifies the character encoding for the HTML document -->
+	<meta name="author" content="Jeria Quesenberry">
+	<meta name="keywords" content="Carnegie Mellon University, Information Systems, resume">
+	<meta name="description" content="Jane Doe Professional Website">
+
+	<!-- The title will appear in the menu bar of the browser -->
+	<title>Jane Doe</title>
+	
+	<!-- External Links to CSS files -->
+    <link rel="stylesheet" media="all" type="text/css" href="css/styles.css" />
+
+    <!-- External Links to JS files -->
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js" ></script>
+    <script type="text/javascript" src="js/scripts.js" ></script>
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+	<script>
+		$(function() {
+			$( "#container-graph" ).highcharts({
+
+
+    title: {
+        text: 'Weekly Workload by Month'
+    },
+
+    subtitle: {},
+
+    yAxis: {
+        title: {
+            text: 'Hours'
+        }
+    },
+    xAxis: {
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
+        
+       
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle'
+    },
+     tooltip: {
+        shared: true,
+        useHTML: true,
+        headerFormat: '<small>{point.key}</small><table>',
+        pointFormat: '<tr><td style="color: {series.color}">{series.name}: </td>' +
+            '<td style="text-align: right"><b>{point.y} hours per week (on average)</b></td></tr>',
+        footerFormat: '</table>',
+        valueDecimals: 2
+    },
+   
+
+    series: [{
+        name: '2013',
+        data: [15, 13, 18, 13, 23, 34, 22, 13, 13, 14, 23, 14]
+    }, {
+        name: '2014',
+        data: [12, 11, 15, 15, 16, 17, 16, 16, 15, 14, 23, 12]
+    }, {
+        name: '2015',
+        data: [12, 16, 12, 13, 13, 34, 22, 20, 18, 16, 11, 22]
+    }, {
+        name: '2016',
+        data: [12, 15, 17, 16, 18, 23, 32, 28, 20, 18, 15, 13]
+    }, {
+        name: '2017',
+        data: [12, 26, 22, 33, 23, 14, 12, 13, 13, 24, 23, 11]
+    }],
+			});
+		});
+    </script>
+
+</head>
+    
+<body>
+
+<div id="container">
+	
+	<div id="top_row">
+	
+	<header>
+		<h1>Jane Doe</h1>
+		<h3>Carnegie Mellon University, Information Systems Program</h3>
+	</header>
+	
+	<nav> 
+	    <a href="index.html">About</a> 
+	    <a href="projects.html">Projects</a> 
+	    <a class="selected" href="contact.html">Contact</a>
+	</nav>
+
+	</div>
+
+	<div id="content">
+
+	<h3>Contact</h3>
+	  <p>Please use the below map to find me.</p>
+
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.4053424880285!2d-79.94556654913119!3d40.444164679260666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8834f2218bddc99f%3A0xeea6ccadbf7b721e!2sWarner+Hall%2C+5000+Forbes+Ave%2C+Pittsburgh%2C+PA+15213!5e0!3m2!1sen!2sus!4v1520385687844" width="600" height="450" frameborder="0" style="border:0" allowfullscreen>
+	</iframe>
+	<p> please check to see when I'm free</p>
+	<div id="container-graph"></div>
+
+	  <p>Please use the below form to get in touch with me.</p>
+	  
+	  <form onsubmit=" return validate()">
+	  
+	  <fieldset>
+		  <legend>Tell me more about yourself</legend>
+		  <label for="uname">Name:</label> <br/>
+		  <input type="text" id="uname" name="uname" value="Your Name" size="20" maxlength ="250"><br/><br/>
+		  <label for="txtDate">Your date of birth:</label> <br>
+		  <input type="date" id="txtDate" name="txtDate" value="" size="20" maxlength ="250" required><br/><br/>
+	  </fieldset>
+	  
+	  <fieldset>
+		  <legend>Tell me about your preferences</legend>
+		  <label for="flower">Your favorite flower color:</label> <br/>
+		  <input type="color" id="flower" name="flower" value="Your favorite flower color" ><br/><br/>
+		  <label fr="message">Message:</label> <br/>
+		  <textarea id="message" name="message" value="Type your Message" rows="10" cols="50" maxlength="1000"> </textarea><br/><br/>
+	  </fieldset>
+	  
+	  <fieldset>
+		  <legend>Let's stay in touch</legend>
+		  <label>Please give your phone number(no dashes or spaces)</label>
+		  <input type="text" id="phone" name="phone" required>
+		  <label for="source">How did you find out about me?</label>
+		  <select name="source">
+			  <option value="Google" selected>Google</option>
+			  <option value="news">News article</option>
+			  <option value="friend">Friend</option>
+			  <option value="other">Other</option><br/>
+		  </select><br/><br/>
+
+		  <label>Please indicate if you want to receive updates via email:</label><br/>
+		  <input type="checkbox" id="signup" name="signup" value="yes">Yes, please update me!<br/><br/>
+		  <label for="email">Please provide your email address:</label><br/>
+		  <input type="email" id="email" name="email" value="" Placeholder = "abc@defg.com" required ><br/><br/>
+		  <label for="pswrd">Choose a password:</label><br/>
+		  <input type="password" id="pswrd" name="pswrd" value="" size="20" maxlength="20"><br/>
+	  </fieldset>
+	  
+	  <fieldset>
+	  	  <input type ="image" src="images/submit.png" alt="Submit" name= "btnimage" value ="Submit">
+	  </fieldset>
+	  
+	  </form>
+	  	
+	</div> <!-- Close content -->
+	
+	<div id="sidebar">
+		<h3>Find Me</h3>
+		<strong>Jane Doe</strong><br/>
+		<a href="http://www.cmu.edu" target="_blank">Carnegie Mellon University</a><br/>
+		5000 Forbes Avenue<br/>
+		Pittsburgh, PA 15213<br/>
+		412-268-0000 (h)<br/>
+		412-555-5555 (c)<br/><br/>
+		<a href="mailto:jquesenberry@cmu.edu"><img src="images/email.png"></a>
+		<a href="http://www.linkedin.com" target="_blank"><img src="images/linkedin.png"></a>
+		<a href="http://www.facebook.com" target="_blank"><img src="images/facebook.png"></a>
+	</div> <!--Close sidebar  -->
+	
+	<footer>
+		<hr/>
+		&copy; Jane Doe 2017<br/>
+		<a href="mailto:janedoe@cmu.edu">Email Me</a>
+		<!-- Anchor tags can take you to pages outside the site, within the site or within the page. -->
+	    <a href="http://cmu.edu" target="_blank">Carnegie Mellon University</a>
+	    <!-- This anchor takes us to another site (href starts with "http://...") so this is an absolute link. -->
+	</footer>
+
+</div> <!-- Close container -->	
+</body>
+
+</html>
